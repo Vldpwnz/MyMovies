@@ -1,0 +1,40 @@
+DROP DATABASE IF EXISTS mymovies;
+CREATE DATABASE mymovies;
+USE mymovies;
+
+
+
+CREATE TABLE IF NOT EXISTS MOVIE
+(
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(150),
+	description TEXT,
+	author VARCHAR(50),
+	release_year DATE,
+	poster_URL VARCHAR(255),
+	PRIMARY KEY (id)
+);
+
+
+CREATE TABLE IF NOT EXISTS USER(
+	id INT NOT NULL AUTO_INCREMENT,
+	user_name VARCHAR(150),
+	PRIMARY KEY (id)
+);
+
+
+CREATE TABLE IF NOT EXISTS MOVIE_USER(
+	user_id INT NOT NULL,
+	movie_id INT NOT NULL,
+	PRIMARY KEY(user_id, movie_id),
+	CONSTRAINT fk_user_id 
+		FOREIGN KEY (user_id) REFERENCES mymovies.USER(id)
+		ON DELETE CASCADE ON UPDATE CASCADE,
+	
+	CONSTRAINT fk_movie_id 
+		FOREIGN KEY (movie_id) REFERENCES mymovies.MOVIE(id)
+		ON DELETE CASCADE ON UPDATE CASCADE
+	);
+	
+	
+	
