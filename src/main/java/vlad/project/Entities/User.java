@@ -31,6 +31,31 @@ public class User {
 			joinColumns =@JoinColumn(name = "user_id"),
 			inverseJoinColumns = @JoinColumn( name = "movie_id"))
 	private List<Movie> movies;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public List<Movie> getMovies() {
+		return movies;
+	}
+
+	public void setMovies(List<Movie> movies) {
+		this.movies = movies;
+	}
+	
 	
 	
 	

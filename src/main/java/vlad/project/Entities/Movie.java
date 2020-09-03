@@ -17,6 +17,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
+//@Data annotation not giving getters/setters for thymeleaf, added it manually 
 @Data
 public class Movie {
 	
@@ -45,6 +46,63 @@ public class Movie {
 			joinColumns =@JoinColumn(name = "movie_id"),
 			inverseJoinColumns = @JoinColumn( name = "user_id"))
 	private List<User> users;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public Date getReleaseYear() {
+		return releaseYear;
+	}
+
+	public void setReleaseYear(Date releaseYear) {
+		this.releaseYear = releaseYear;
+	}
+
+	public String getPosterURL() {
+		return posterURL;
+	}
+
+	public void setPosterURL(String posterURL) {
+		this.posterURL = posterURL;
+	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+	
 	
 	
 	

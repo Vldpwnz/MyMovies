@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>MyMovies users</title>
+</head>
+<body>
+
+<div>
+	<h2>MyMovies user list</h2>
+</div>
+
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>User-name</th>
+				<th>List of liked movies</th>
+			</tr>	
+		</thead>
+		
+		<tbody>
+			<tr th:if="${users.empty}">
+				<td>No users</td>
+			</tr>
+			
+			<tr th:each="user: ${users}">
+				<td th:text="${user.id}">ID</td>
+				<td th:text="${user.userName}">User-name</td>
+				<td th:text="${user.movies}">List of liked movies</td>
+			</tr>
+			
+		</tbody>
+	</table>
+</div>
+	
+
+
+</body>
+</html>
