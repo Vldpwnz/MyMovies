@@ -32,7 +32,7 @@
 				<td th:text="${movie.name}">Name</td>
 				<td th:text="${movie.description}">Description</td>
 				<td th:text="${movie.author}">Author</td>
-				<td th:text="${movie.releaseYear}">Release Year</td>
+				<td th:text="${#dates.year(movie.releaseYear)}">Release Year</td>
 			</tr>
 			
 		</tbody>
