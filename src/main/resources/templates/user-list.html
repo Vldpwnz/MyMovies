@@ -9,7 +9,7 @@
 <div>
 	<h2>MyMovies user list</h2>
 </div>
-
+<a href="/">Main Page</a>
 <div>
 	<table>
 		<thead>
@@ -27,7 +27,9 @@
 			
 			<tr th:each="user: ${users}">
 				<td th:text="${user.id}">ID</td>
-				<td th:text="${user.userName}">User-name</td>
+				<td>
+					<a th:href = "@{'/users/' + ${user.id}}"  th:text="${user.userName}"></a>
+				</td>
 				<td th:text="${user.movies}">List of liked movies</td>
 			</tr>
 			

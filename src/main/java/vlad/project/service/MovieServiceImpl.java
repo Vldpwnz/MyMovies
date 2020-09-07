@@ -22,6 +22,11 @@ public class MovieServiceImpl implements MovieService {
 	public List<Movie> findAll() {
 		return repository.findAll();
 	}
+
+	public void save(Movie movie) {
+		repository.save(movie);
+		
+	}
 	
 	
 

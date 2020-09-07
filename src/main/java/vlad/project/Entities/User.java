@@ -20,7 +20,8 @@ import lombok.NoArgsConstructor;
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	//must be IDENTITY, as database created and have pre-edited entities in it 
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	@Column(name = "user_name")
 	private String userName;

@@ -12,6 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,7 +25,8 @@ import lombok.NoArgsConstructor;
 public class Movie {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//must be IDENTITY, as database created and have pre-edited entities in it 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(name = "name")
@@ -35,6 +39,10 @@ public class Movie {
 	private String author;
 	
 	@Column(name = "release_year")
+	/**DateTimeFormat using this annotation I excluded problems with conversation between date in Spring Boot and date in Thymeleaf 
+	 * Failed to convert from type [java.lang.String] to type [@javax.persistence.Column java.util.Date] for value '2020-02-13'
+	 */
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date releaseYear;
 	
 	@Column(name = "poster_URL")
