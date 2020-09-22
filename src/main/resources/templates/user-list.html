@@ -28,9 +28,12 @@
 			<tr th:each="user: ${users}">
 				<td th:text="${user.id}">ID</td>
 				<td>
-					<a th:href = "@{'/user/' + ${user.id}}"  th:text="${user.userName}"></a>
+					<a th:text="${user.userName}"></a>
 				</td>
-				<td th:text="${user.movies}">List of liked movies</td>
+				
+				<td>
+					<a th:href = "@{'/user/' + ${user.id}}" th:text="'See movie list'"></a>
+				</td>
 			</tr>
 			
 		</tbody>

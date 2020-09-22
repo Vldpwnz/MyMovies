@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import vlad.project.Entities.Movie;
+import vlad.project.entities.Movie;
 import vlad.project.repository.MovieRepository;
 
 @Service

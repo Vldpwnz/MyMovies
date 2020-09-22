@@ -1,4 +1,4 @@
-package vlad.project.Entities;
+package vlad.project.entities;
 
 import java.util.List;
 
@@ -32,6 +32,7 @@ public class User {
 			joinColumns =@JoinColumn(name = "user_id"),
 			inverseJoinColumns = @JoinColumn( name = "movie_id"))
 	private List<Movie> movies;
+
 
 	public long getId() {
 		return id;

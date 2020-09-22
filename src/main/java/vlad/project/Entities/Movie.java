@@ -1,4 +1,4 @@
-package vlad.project.Entities;
+package vlad.project.entities;
 
 import java.util.Date;
 import java.util.List;

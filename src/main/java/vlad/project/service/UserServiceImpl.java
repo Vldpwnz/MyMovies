@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import vlad.project.Entities.User;
+import vlad.project.entities.User;
 import vlad.project.repository.UserRepository;
 
 @Service
@@ -33,9 +33,22 @@ public class UserServiceImpl implements UserService {
 		if(result.isPresent()) {
 			user = result.get();
 		}else {
-			throw new RuntimeException("User doesn't exists with such id: " + id);
+			throw new RuntimeException("User doesn't exist with such id: " + id);
 		}
 		
+		return user;
+	}
+
+	@Override
+	public User findByUserName(String username) {
+		Optional<User> result = repository.findByUserName(username);
+		User user = null;
+		
+		if(result.isPresent()) {
+			user = result.get();
+		}else {
+			throw new RuntimeException("User doesn't exist with such username: " + username);
+		}
 		return user;
 	}
 
