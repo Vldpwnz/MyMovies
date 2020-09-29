@@ -23,8 +23,12 @@ public class User {
 	//must be IDENTITY, as database created and have pre-edited entities in it 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
+	
 	@Column(name = "user_name")
 	private String userName;
+	
+	@Column(name = "password")
+	private String password;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(

@@ -1,10 +1,10 @@
 USE mymovies;
 
-INSERT INTO USER(user_name)
+INSERT INTO USER(user_name, password)
 	VALUES
-	('Tanya'),
-	('Vlad'),
-	('Slaveg');
+	('Tanya', 'defaultPassword'),
+	('Vlad', 'defaultPassword'),
+	('Slaveg', 'defaultPassword');
 	
 INSERT INTO MOVIE(name, description, author, release_year, poster_URL)
 	VALUES
