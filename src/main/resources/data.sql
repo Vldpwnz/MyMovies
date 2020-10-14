@@ -1,11 +1,16 @@
 USE mymovies;
 
-INSERT INTO USER(user_name, password)
+INSERT INTO USER(user_name, password, enabled)
 	VALUES
-	('Tanya', 'defaultPassword'),
-	('Vlad', 'defaultPassword'),
-	('Slaveg', 'defaultPassword');
+	('Tanya', 'defaultPassword', 1),
+	('Vlad', 'defaultPassword', 1),
+	('Slaveg', 'defaultPassword', 1);
 	
+INSERT INTO AUTHORITIES(user_name, authority)
+	VALUES
+	('Tanya', 'write'),
+	('Vlad', 'write'),
+	('Slaveg', 'write');	
 INSERT INTO MOVIE(name, description, author, release_year, poster_URL)
 	VALUES
 	('Tenet', 'new movie about time', 'LOLan', '2020-08-26', 'some url'),
