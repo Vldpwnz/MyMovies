@@ -61,6 +61,14 @@ public class User {
 	public void setMovies(List<Movie> movies) {
 		this.movies = movies;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 	
 	

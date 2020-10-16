@@ -2,9 +2,9 @@ USE mymovies;
 
 INSERT INTO USER(user_name, password, enabled)
 	VALUES
-	('Tanya', 'defaultPassword', 1),
-	('Vlad', 'defaultPassword', 1),
-	('Slaveg', 'defaultPassword', 1);
+	('Tanya', '$2y$10$dplmLyjqUM9lsDivbNs0WeFo9n.BZxb5k.nU9figDUcU/WKSYTSZ.', 1),
+	('Vlad', '$2y$10$dplmLyjqUM9lsDivbNs0WeFo9n.BZxb5k.nU9figDUcU/WKSYTSZ.', 1),
+	('Slaveg', '$2y$10$dplmLyjqUM9lsDivbNs0WeFo9n.BZxb5k.nU9figDUcU/WKSYTSZ.', 1);
 	
 INSERT INTO AUTHORITIES(user_name, authority)
 	VALUES

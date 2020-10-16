@@ -22,18 +22,7 @@ public class UserManagmentConfig {
 	
 	@Bean
 	public UserDetailsService userDetailsService() {
-		
-		String password = passwordEncoder.encode("password");
-		
-		UserDetailsManager userDetailsService = new InMemoryUserDetailsManager();
-		
-		UserDetails user = User.withUsername("vlad")
-				.password(password)
-				.authorities("read")
-				.build();
-
-		userDetailsService.createUser(user);
-		return userDetailsService;
+		return new SecurityUserService();
 	}
 	
 	@Bean

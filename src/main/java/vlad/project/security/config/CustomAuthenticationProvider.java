@@ -36,7 +36,7 @@ public class CustomAuthenticationProvider
 					userDetails.getAuthorities()
 					);
 			} else {
-				throw new BadCredentialsException("Something went wrond");
+				throw new BadCredentialsException("Something went wrong");
 		}
 	}
 
