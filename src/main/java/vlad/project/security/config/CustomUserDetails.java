@@ -2,20 +2,19 @@ package vlad.project.security.config;
 
 import java.util.Collection;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Service;
 
 import vlad.project.entities.User;
 
 
 
-public class SecurityUser implements UserDetails {
+public class CustomUserDetails implements UserDetails {
 
 	private final User user;
 	
-	public SecurityUser(User user) {
+	public CustomUserDetails(User user) {
 		this.user = user;
 	}
 	
@@ -33,7 +32,7 @@ public class SecurityUser implements UserDetails {
 	@Override
 	public String getUsername() {
 	
-		return this.user.getPassword();
+		return this.user.getUserName();
 	}
 
 	@Override

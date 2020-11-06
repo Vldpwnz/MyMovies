@@ -10,21 +10,21 @@ import vlad.project.entities.User;
 import vlad.project.service.UserServiceImpl;
 
 @Service
-public class SecurityUserService implements UserDetailsService {
+public class JpaUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	private UserServiceImpl userService;
 	
 	
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	public CustomUserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userService.findByUserName(username);
 		
 		if(user == null) {
 			throw new UsernameNotFoundException("No such user");
 		}
 		
-		return new SecurityUser(user);
+		return new CustomUserDetails(user);
 	}
 
 }
