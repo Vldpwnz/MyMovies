@@ -22,7 +22,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(HttpSecurity http) throws Exception {
 		http.formLogin()
 		.defaultSuccessUrl("/home-page", true);
+		
 		http.authorizeRequests()
+			.mvcMatchers("/user/all").hasRole("ADMIN")
 			.anyRequest().authenticated();
 	}
 	

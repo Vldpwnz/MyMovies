@@ -1,9 +1,12 @@
 package vlad.project.entities;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,12 +33,20 @@ public class User {
 	@Column(name = "password")
 	private String password;
 	
+
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
 			name = "movie_user",
-			joinColumns =@JoinColumn(name = "user_id"),
+			joinColumns = @JoinColumn(name = "user_id"),
 			inverseJoinColumns = @JoinColumn( name = "movie_id"))
 	private List<Movie> movies;
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(
+			name = "user_role",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private List<Role> roles;
 
 
 	public long getId() {
@@ -69,6 +80,17 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public void addRole(Role role) {
+		this.roles.add(role);
+		
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	
 	
 	
 	
